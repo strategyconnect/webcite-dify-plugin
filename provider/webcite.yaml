@@ -1,0 +1,29 @@
+identity:
+  author: webcite
+  name: webcite
+  label:
+    en_US: Webcite
+  description:
+    en_US: Verify claims against web sources, parse documents to Markdown and search sources with Webcite.
+  icon: icon.png
+  tags:
+    - search
+    - rag
+credentials_for_provider:
+  webcite_api_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: Webcite API key
+    placeholder:
+      en_US: Paste your Webcite API key
+    help:
+      en_US: Create a key in your Webcite account
+    url: https://webcite.co/api-keys
+tools:
+  - tools/verify_claim.yaml
+  - tools/extract_document.yaml
+  - tools/search_sources.yaml
+extra:
+  python:
+    source: provider/webcite.py

@@ -1,0 +1,22 @@
+identity:
+  name: extract_document
+  author: webcite
+  label:
+    en_US: Parse document to Markdown
+description:
+  human:
+    en_US: Read a PDF, scan, image, spreadsheet or office file from a direct link and return Markdown with page provenance. Charged per page.
+  llm: Parse a document at a direct URL (PDF, image, spreadsheet, docx, pptx, html) into Markdown. Returns the Markdown text and a JSON summary with state, page count and credits used.
+parameters:
+  - name: document_url
+    type: string
+    required: true
+    label:
+      en_US: Document URL
+    human_description:
+      en_US: A direct http or https link to the file
+    llm_description: A direct http or https link to the document file.
+    form: llm
+extra:
+  python:
+    source: tools/extract_document.py

@@ -1,0 +1,31 @@
+identity:
+  name: verify_claim
+  author: webcite
+  label:
+    en_US: Verify claim
+description:
+  human:
+    en_US: Check a factual claim against web sources. Returns a verdict (for example supported or contradicted), a summary and citations with the source passages. 4 credits per claim.
+  llm: Verify one factual claim against authoritative web sources. Returns a verdict, a short summary and citations with URLs and quoted passages. Optionally restrict the check to given source URLs.
+parameters:
+  - name: claim
+    type: string
+    required: true
+    label:
+      en_US: Claim
+    human_description:
+      en_US: The factual statement to check
+    llm_description: One self-contained factual statement to verify.
+    form: llm
+  - name: source_urls
+    type: string
+    required: false
+    label:
+      en_US: Source URLs
+    human_description:
+      en_US: Optional URLs to check the claim against, separated by commas or new lines
+    llm_description: Optional comma-separated URLs that the claim should be checked against.
+    form: llm
+extra:
+  python:
+    source: tools/verify_claim.py

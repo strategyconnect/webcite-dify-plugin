@@ -1,0 +1,33 @@
+version: 0.0.1
+type: plugin
+author: webcite
+name: webcite
+label:
+  en_US: Webcite
+description:
+  en_US: Verify claims against web sources with a verdict and citations, parse document URLs to Markdown, and search sources with Webcite.
+icon: icon.png
+icon_dark: icon.png
+tags:
+  - search
+  - rag
+resource:
+  memory: 268435456
+  permission: {}
+plugins:
+  tools:
+    - provider/webcite.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: null
+created_at: 2026-11-25T03:26:11.36111Z
+privacy: PRIVACY.md
+repo: https://github.com/strategyconnect/webcite-dify-plugin
+verified: false

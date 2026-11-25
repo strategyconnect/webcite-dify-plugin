@@ -1,0 +1,34 @@
+identity:
+  name: search_sources
+  author: webcite
+  label:
+    en_US: Search sources
+description:
+  human:
+    en_US: Find sources on the web for a query, without stance analysis or a verdict. 2 credits per search.
+  llm: Search the web for authoritative sources related to a query. Returns titles, URLs and snippets with no verdict.
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Query
+    human_description:
+      en_US: What to search for
+    llm_description: The search query.
+    form: llm
+  - name: limit
+    type: number
+    required: false
+    default: 10
+    min: 1
+    max: 20
+    label:
+      en_US: Number of sources
+    human_description:
+      en_US: How many sources to return, 1 to 20
+    llm_description: Maximum number of sources to return, from 1 to 20.
+    form: form
+extra:
+  python:
+    source: tools/search_sources.py
