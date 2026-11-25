@@ -25,5 +25,7 @@ class ExtractDocumentTool(Tool):
             doc = client.extract_url(url)
         finally:
             client.close()
-        yield self.create_text_message(str(doc.get("markdown") or ""))
+        markdown = str(doc.get("markdown") or "")
+        if markdown:
+            yield self.create_text_message(markdown)
         yield self.create_json_message(overview(doc))

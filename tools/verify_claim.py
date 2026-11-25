@@ -14,7 +14,8 @@ def summarize(result: dict[str, Any], max_citations: int = 3) -> str:
     for group in result.get("claim_groups") or []:
         verdict = group.get("verdict") or {}
         lines.append(f"Claim: {group.get('claim', '')}")
-        lines.append(f"Verdict: {verdict.get('result', 'unknown')}")
+        if verdict.get("result"):
+            lines.append(f"Verdict: {verdict['result']}")
         if verdict.get("summary"):
             lines.append(f"Summary: {verdict['summary']}")
         for citation in (group.get("citations") or [])[:max_citations]:
